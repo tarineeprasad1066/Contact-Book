@@ -13,19 +13,17 @@ class ContactsController < ApplicationController
   end
   
   def create
-    ash = contact_params;
-    ash[:user_id] = current_user.id;
-    @contact = Contact.new(ash);
+    @contact = Contact.new(contact_params)
 
     if @contact.save
-      redirect_to contacts_path, notice: "Contact #{@contact.name} has been uploaded!"
+      redirect_to @contact, notice: "Contact #{@contact.name} has been uploaded!"
     else
-      render 'new'
+      render 'new', status: :unprocessable_entity
     end
   end
   
   def show
-
+    @contact = Contact.find(params[:id])
   end
 
   def edit
@@ -34,7 +32,7 @@ class ContactsController < ApplicationController
   
   def update
     if @contact.update(contact_params)
-      redirect_to contacts_path, notice: "Contact #{@contact.name} has been sucessfully updated!"
+      redirect_to @contact, notice: "Contact #{@contact.name} has been sucessfully updated!"
     else
       render 'edit'
     end
