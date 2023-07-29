@@ -6,7 +6,7 @@
 
 <div>
   <h4>
-      All Contacts <span><%= current_user.contacts.count %></span>
+      All Contacts
   </h4>
   <h4><%= link_to "New Contact", new_contact_path %></h4>
 </div>
@@ -40,3 +40,5 @@
     <% end %>
   </tbody>
 </table>
+
+<%= will_paginate @contacts, :style => 'color:blue' %>

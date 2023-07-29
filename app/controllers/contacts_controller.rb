@@ -3,9 +3,10 @@ class ContactsController < ApplicationController
   before_action :find_contact, only: [:show, :edit, :update, :destroy]
 
   def index
-    @contacts = Contact.all
+   # @contacts = Contact.all
     
-    # @albums = current_user.albums.paginate(page: params[:page], per_page: 4)
+    #@contacts = current_user.contacts.paginate(page: params[:page], per_page: 4)
+    @contacts = Contact.paginate(:page => params[:page], :per_page => 4)
   end
   
   def new
