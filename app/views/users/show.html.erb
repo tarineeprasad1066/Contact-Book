@@ -1,13 +1,15 @@
-<br /><br />
-
-      <div>
-        <h1>Welcome!</h1>
-        
-        <p>Your are in he best place where you can create your contact archive! 
-          Explore more and continue the journey with us...<br />👧👍👍👧.</p>
-        <p>
-        
-          <%= link_to "Contact List", contacts_path %>
-          <%= link_to "Add new Contact", new_contact_path %>
-        </p>
-      </div>
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Raleway" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <%# <link rel="stylesheet" href="assets/stylesheets/application.css"> %>
+</head>
+<body>
+  <section class="hero">
+    <div class="hero-content-area">
+      <h1>Welcome!</h1>
+      <h3>Your are in he best place where you can create your contact archive! 
+          Explore more and continue the journey with us...<br />👧👍👍👧.</h3>
+          <a><%= link_to "Contact List", contacts_path, class: "btn" %></a>
+          <a><%= link_to "Add New Contact", new_contact_path, class: "btn" %></a>
+    </div>
+  </section>
+</body>

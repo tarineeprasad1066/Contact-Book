@@ -7,13 +7,10 @@
                   <li><%= message %></li>
                 <% end %>
               </ul>
-
-      <% end %>
-          
+      <% end %>    
 
               <%= f.label :name, class: "control-label col-md-3" %>
               <%= f.text_field :name, class: "form-control" %>                
-
             
               <%= f.label :mobile, class: "control-label col-md-3" %>               
               <%= f.phone_field :phone, class: "form-control" %>
@@ -23,7 +20,6 @@
 
               <%= f.label :address, class: "control-label col-md-3" %>               
               <%= f.text_area :address, class: "form-control" %>                
-    
             
               <button type="submit">Save</button>
               <%= link_to "Cancel", contacts_path %>

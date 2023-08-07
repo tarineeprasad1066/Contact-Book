@@ -1,12 +1,11 @@
 <body>
-  <section>
+  <section class="design">
     <div class="form-box">
       <div class="form-value">
         <form>
           <h2>Login</h2>
           
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
             <div class="inputbox">
               <ion-icon name="mail-outline"></ion-icon>
               <%= f.email_field :email, placeholder: "Email", autofocus: true, autocomplete: "email" %>

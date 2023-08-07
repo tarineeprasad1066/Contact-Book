@@ -1,13 +1,17 @@
-<br />
-<br />
- <div>
-        <h2><b>Welcome to Contact Book</b></h2>
-        <p>
-          Welcome to Contact Book. The best application in which you can create your contact archive! 
-          Do not hesitate to get started. Create an account to start the trip with us...👧👍👍👧
-        </p>
-        <div>
-          <p><%= link_to "Sign Up Today", new_user_registration_path %></p>
-        </div>
-      
-</div>
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Raleway" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <%# <link rel="stylesheet" href="assets/stylesheets/application.css"> %>
+</head>
+<body>
+  <!-- Forked from a template on Tutorialzine: https://tutorialzine.com/2016/06/freebie-landing-page-template-with-flexbox -->
+
+  <section class="hero">
+    <div class="background-image"></div>
+    <div class="hero-content-area">
+      <h1>Welcome to Contact Book!</h1>
+      <h3>Welcome to Contact Book. The best application in which you can create your contact archive! 
+          Do not hesitate to get started. Create an account to start the trip with us...👧👍👍👧</h3>
+          <a><%= link_to "Sign Up Today", new_user_registration_path, class: "btn" %></a>
+    </div>
+  </section>
+</body>
