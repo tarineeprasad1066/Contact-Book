@@ -2,7 +2,7 @@
   <section class="design">
     <div class="form-box">
       <div class="form-value">
-        <form>
+        
           <h2>Login</h2>
           
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -32,8 +32,7 @@
           <div class="register">
             <p>Don't have an account? <%= link_to "Sign Up", new_registration_path(resource_name) %></p>
           </div>
-
-        </form>
+          
       </div>
     </div>
   </section>

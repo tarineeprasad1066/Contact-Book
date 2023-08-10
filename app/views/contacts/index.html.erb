@@ -1,44 +1,36 @@
 <% if !flash[:notice].blank? %>
-  <div>
-  <%= flash[:notice] %>
-  </div>
+    <div>
+    <%= flash[:notice] %>
+    </div>
 <% end %>
-
-<div>
-  <h4>
-      All Contacts
-  </h4>
-  <h4><%= link_to "New Contact", new_contact_path %></h4>
-</div>
-<br />
-
-<table>
-  <thead>
-    <tr>
-      <th>Full Name</th>
-      <th>Mobile</th>
-      <th>Email</th>
-      <th>Address</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @contacts.each do |contact| %>
-      <tr>
-        <td><%= contact.name %></td>
-        <td><%= contact.phone %></td>
-        <td><%= contact.email %></td>
-        <td><%= contact.address %></td>
-        <td>
-          <ul>
-             <li><%= link_to edit_contact_path(contact), title: "Edit" do %>
-            <% end %></li>
-            <li><%= button_to "Delete",  contact, method: :delete, confirm: "Are you sure that you wish to delete #{contact.name}?" %></li>
-        </ul>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+  <h4>All Contacts</h4>
+  <h4><%= link_to "+ New Contact", new_contact_path %></h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Full Name</th>
+          <th>Mobile</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @contacts.each do |contact| %>
+          <tr>
+            <td><%= contact.name %></td>
+            <td><%= contact.phone %></td>
+            <td><%= contact.email %></td>
+            <td><%= contact.address %></td>
+            <td>
+              <ul>
+                <li><%= link_to edit_contact_path(contact), title: "Edit" do %>
+                <% end %></li>
+                <li><%= button_to "Delete",  contact, method: :delete, confirm: "Are you sure that you wish to delete #{contact.name}?" %></li>
+            </ul>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 <%= will_paginate @contacts, :style => 'color:blue' %>

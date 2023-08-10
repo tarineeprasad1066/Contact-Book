@@ -14,7 +14,10 @@ class ContactsController < ApplicationController
   end
   
   def create
-    @contact = Contact.new(contact_params)
+    # @contact = Contact.new(contact_params)
+    ash = contact_params;
+    ash[:user_id] = current_user.id;
+    @contact =  Contact.new(ash);
 
     if @contact.save
       redirect_to @contact, notice: "Contact #{@contact.name} has been uploaded!"

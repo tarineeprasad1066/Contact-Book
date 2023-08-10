@@ -1,26 +1,26 @@
 <nav class="navbar">
-        <div class="navbar-container container">
-            <input type="checkbox" name="" id="">
-            <div class="hamburger-lines">
-                <span class="line line1"></span>
-                <span class="line line2"></span>
-                <span class="line line3"></span>
-            </div>
-
-            <% if user_signed_in? %> 
-            <ul class="menu-items">
-                <li><a><%= link_to "My Contact", contacts_path %></a></li>
-                <li><a><%= link_to "New Contact", new_contact_path %></a></li>
-                <li><a><%= link_to "Log Out", destroy_user_session_path %></a></li>
-            </ul><% else %>
-            <ul class="menu-items">
-                <li><a><%= link_to "Log In", new_user_session_path %></a></li>
-                <li><a><%= link_to "Sign Up", new_user_registration_path %></a></li>
-            </ul>
-            <% end %>
-
-            <h1 class="logo">
-              <%= link_to "Contact Book", root_path %>
-            </h1>
+    <div class="navbar-container container">
+        <input type="checkbox" name="" id="">
+        <div class="hamburger-lines">
+            <span class="line line1"></span>
+            <span class="line line2"></span>
+            <span class="line line3"></span>
         </div>
-    </nav>
+
+        <% if user_signed_in? %> 
+        <ul class="menu-items">
+            <li><a><%= link_to "My Contact", contacts_path %></a></li>
+            <li><a><%= link_to "New Contact", new_contact_path %></a></li>
+            <li><a><%= link_to "Log Out", destroy_user_session_path, data: { turbo_method: :delete } %></a></li>
+        </ul><% else %>
+        <ul class="menu-items">
+            <li><a><%= link_to "Log In", new_user_session_path %></a></li>
+            <li><a><%= link_to "Sign Up", new_user_registration_path %></a></li>
+        </ul>
+        <% end %>
+
+        <h1 class="logo">
+            <%= link_to "Contact Book", root_path %>
+        </h1>
+    </div>
+</nav>
