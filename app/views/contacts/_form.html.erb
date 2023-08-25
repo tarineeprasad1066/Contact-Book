@@ -1,27 +1,33 @@
-<%= form_for @contact ,html: { multipart: true } do |f| %> 
+<h2>Add Contact</h2>
+
+  <%= form_for @contact ,html: { multipart: true } do |f| %>          
+      
       <% if @contact.errors.any? %>
               <h3>Correct this following errors:</h3>
-
               <ul>
                 <% @contact.errors.full_messages.each do |message| %>
                   <li><%= message %></li>
                 <% end %>
               </ul>
-      <% end %>    
+      <% end %>
 
-              <%= f.label :name, class: "control-label col-md-3" %>
-              <%= f.text_field :name, class: "form-control" %>                
-            
-              <%= f.label :mobile, class: "control-label col-md-3" %>               
-              <%= f.phone_field :phone, class: "form-control" %>
 
-              <%= f.label :email, class: "control-label col-md-3" %>               
-              <%= f.email_field :email, class: "form-control" %>                
+      <%= f.label :name %>
+      <%= f.text_field :name, placeholder: "Jane Doe" %>
+     
+      <%= f.label :mobile %>               
+      <%= f.phone_field :phone, placeholder: "+91-8377294832" %>
+    
+      <%= f.label :email %>          
+      <%= f.email_field :email, placeholder: "janedoe123@gmail.com" %>        
+    
+      <%= f.label :address %>
+      <%= f.text_area :address, placeholder: "Write Address.." %>
 
-              <%= f.label :address, class: "control-label col-md-3" %>               
-              <%= f.text_area :address, class: "form-control" %>                
-            
-              <button type="submit">Save</button>
-              <%= link_to "Cancel", contacts_path %>
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+  
+      <button type="submit">Save</button>
+      <%= link_to "Cancel", contacts_path %>              
     
   <% end %>

@@ -12,6 +12,7 @@
           <th>Mobile</th>
           <th>Email</th>
           <th>Address</th>
+          <th>Photo</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -22,6 +23,9 @@
             <td><%= contact.phone %></td>
             <td><%= contact.email %></td>
             <td><%= contact.address %></td>
+            <% if contact.image.content_type.in?(%w[image/jpeg image/png]) %>
+              <td><%= link_to image_tag(contact.image_as_thumbnail), contact.image if contact.image.attached? %></td>
+            <% end %>
             <td>
               <ul>
                 <li><%= link_to edit_contact_path(contact), title: "Edit" do %>
@@ -33,4 +37,5 @@
         <% end %>
       </tbody>
     </table>
-<%= will_paginate @contacts, :style => 'color:blue' %>
+
+<%= will_paginate(@contacts) %>

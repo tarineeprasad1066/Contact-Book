@@ -1,12 +1,15 @@
 class ContactsController < ApplicationController
 
   before_action :find_contact, only: [:show, :edit, :update, :destroy]
+  require 'will_paginate/array'
 
   def index
-   # @contacts = Contact.all
-    
-    #@contacts = current_user.contacts.paginate(page: params[:page], per_page: 4)
-    @contacts = Contact.paginate(:page => params[:page], :per_page => 4)
+  #  @contacts = Contact.paginate(page: params[:page])
+  @contacts = []
+  Contact.all.each do |contact|
+    @contacts.push(contact)
+  end
+  @contacts = @contacts.paginate(page: params[:page], per_page: 4)
   end
   
   def new
@@ -54,6 +57,6 @@ class ContactsController < ApplicationController
   end
   
   def contact_params
-    params.require(:contact).permit(:name, :phone, :email, :address)
+    params.require(:contact).permit(:name, :phone, :email, :address, :image)
   end
 end
