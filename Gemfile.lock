@@ -109,8 +109,6 @@ GEM
       faraday (~> 1)
       multi_json
     erubi (1.12.0)
-    faker (3.2.1)
-      i18n (>= 1.8.11, < 2)
     faraday (1.10.3)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
@@ -291,7 +289,6 @@ DEPENDENCIES
   debug
   devise
   elasticsearch (~> 7.17)
-  faker
   foreman!
   image_processing (~> 1.2)
   importmap-rails

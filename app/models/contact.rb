@@ -1,4 +1,6 @@
 class Contact < ApplicationRecord
+  searchkick text_middle: %i[name phone email address]
+  
   self.per_page = 4
   belongs_to :user
   

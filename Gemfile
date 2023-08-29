@@ -79,5 +79,4 @@ end
 
 gem 'searchkick'
 gem 'elasticsearch', '~> 7.17'
-gem 'faker'
 gem 'foreman', github:  'ddollar/foreman'

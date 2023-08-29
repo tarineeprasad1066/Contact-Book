@@ -5,37 +5,11 @@
 <% end %>
   <h4>All Contacts</h4>
   <h4><%= link_to "+ New Contact", new_contact_path %></h4>
-    <table>
-      <thead>
-        <tr>
-          <th>Full Name</th>
-          <th>Mobile</th>
-          <th>Email</th>
-          <th>Address</th>
-          <th>Photo</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @contacts.each do |contact| %>
-          <tr>
-            <td><%= contact.name %></td>
-            <td><%= contact.phone %></td>
-            <td><%= contact.email %></td>
-            <td><%= contact.address %></td>
-            <% if contact.image.content_type.in?(%w[image/jpeg image/png]) %>
-              <td><%= link_to image_tag(contact.image_as_thumbnail), contact.image if contact.image.attached? %></td>
-            <% end %>
-            <td>
-              <ul>
-                <li><%= link_to edit_contact_path(contact), title: "Edit" do %>
-                <% end %></li>
-                <li><%= button_to "Delete",  contact, method: :delete, confirm: "Are you sure that you wish to delete #{contact.name}?" %></li>
-            </ul>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+
+  <div class="flex justify-center">
+    <%= render partial: "search/form", locals: { results: [] } %>
+  </div>
+
+  <%= render "contacts/contacts", contacts: @contacts %>
 
 <%= will_paginate(@contacts) %>
